@@ -51,6 +51,12 @@ name = "Posts"
 url = "/posts"
 weight = 4
 
+[[menu.main]]
+name = "Resume"
+url = "https://cric96.github.io/resume/"
+weight = 5
+
+
 [[params.social]]
 name = "Github"
 icon = "github"
