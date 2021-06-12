@@ -1,7 +1,7 @@
 baseURL = "https://cric96.github.io/"
 languageCode = "en-us"
 title = "Gianluca Aguzzi"
-theme = "hugo-ink"
+theme = ["hugo-ink", "hugo-cite"]
 paginate = 5
 
 copyright = "© Copyright notice"
