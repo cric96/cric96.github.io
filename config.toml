@@ -62,5 +62,15 @@ name = "Github"
 icon = "github"
 url = "https://github.com/cric96"
 
+[[params.social]]
+name = "Email"
+icon = "at-sign"
+url = "mailto:gianluca.aguzzi@unibo.it"
+
+[[params.social]]
+name = "Stackoverflow"
+icon = "link"
+url = "https://stackoverflow.com/users/10295847/gianluca-aguzzi"
+
 [taxonomies]
    tag = "tags"
