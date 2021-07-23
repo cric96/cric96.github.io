@@ -72,5 +72,10 @@ name = "Stackoverflow"
 icon = "link"
 url = "https://stackoverflow.com/users/10295847/gianluca-aguzzi"
 
+[[params.social]]
+name = "University"
+icon = "book-open"
+url = "https://www.unibo.it/sitoweb/gianluca.aguzzi"
+
 [taxonomies]
    tag = "tags"
