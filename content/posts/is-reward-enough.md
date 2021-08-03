@@ -2,7 +2,6 @@
 title: "Is Reward enough for intelligence?"
 subtitle: "Interesting works"
 draft: true
-
 ---
 
 Hey folks! :)
