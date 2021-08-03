@@ -2,6 +2,7 @@
 title: "Is Reward enough for intelligence?"
 subtitle: "Interesting works"
 draft: true
+tags: [Scientific literature]
 ---
 
 Hey folks! :)

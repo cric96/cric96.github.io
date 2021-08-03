@@ -1,6 +1,7 @@
 ---
 title: "Why a personal website?"
 date: 2021-03-27T22:06:44+01:00
+tags: [Procrastinating]
 ---
 
 In a social network era, what the hell bring me to build a personal website? So, mainly I choose to do so for:
