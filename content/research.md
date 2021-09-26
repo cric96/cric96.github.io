@@ -1,7 +1,7 @@
 --- 
 title: "My Research Interest"
 type: "page"
-bibFile: ref/lib.json # path relative to project root
+bibFile: articles/lib.json # path relative to project root
 ---
 My current research topics concern large-scale system coordination and machine learning algorithm in distributed systems.
 In my research group, we study a technique called Aggregate Computing, a top-down declarative approach to coordinate collective behaviour.

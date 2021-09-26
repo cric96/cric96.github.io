@@ -10,3 +10,6 @@
 [submodule "ref"]
 	path = ref
 	url = https://github.com/cric96/articles
+[submodule "articles"]
+	path = articles
+	url = https://github.com/cric96/articles
