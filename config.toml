@@ -87,5 +87,10 @@ name = "ORCID"
 icon = "globe"
 url = "https://orcid.org/0000-0002-1553-4561"
 
+[[params.social]]
+name = "DBLP"
+icon = "globe"
+url = "https://dblp.org/pid/294/4314.html"
+
 [taxonomies]
    tag = "tags"
