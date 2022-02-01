@@ -2,7 +2,7 @@
 ---
 title: "Fun with Code"
 subtitle: "Complexity course: automata"
-draft: false
+draft: true
 tags: [Coding]
 ---
 This posts series is kind of a container where I put some of my scripts produced for courses, enjoyment or whatever.
