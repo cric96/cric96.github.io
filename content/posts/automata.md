@@ -1,12 +1,13 @@
 
 ---
-title: "Fun with Coding"
+title: "Fun with Code"
 subtitle: "Complexity course: automata"
 draft: false
 tags: [Coding]
 ---
+This posts series is kind of a container where I put some of my scripts produced for courses, enjoyment or whatever.
+
 ## Complexity course: automata
-This series of posts is kind of a container where I put some of my script produced for courses, enjoyment or whatever.
 
 This one is a script produced to recreate the Elementary cellular automata -- the simplest automata that show emergent patterns.
 {{< rawhtml >}}
