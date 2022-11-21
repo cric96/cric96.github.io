@@ -14,7 +14,7 @@ googleAnalytics = "UA-123-45"
 disqusShortname = "ink-demo"
 
 [params]
-	subtitle = "A personal website"
+	subtitle = "Become who you are."
 
 	# Optional 64x64 avatar image.
 	avatar = "/imgs/me.jpeg"
