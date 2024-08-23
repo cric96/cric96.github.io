@@ -1,0 +1,9 @@
+---
+interface Props {
+	href: string;
+	icon: string;
+}
+import { Icon } from 'astro-icon/components'
+const { href, icon } = Astro.props;
+---
+<a href={href} class="inline-block"><Icon name={icon} /></a>
