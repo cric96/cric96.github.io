@@ -1,5 +1,5 @@
 
 
-export const SITE_NAME = 'Gianluca Aguzzi - PhD'
+export const SITE_NAME = 'Gianluca Aguzzi - Postdoctoral Researcher'
 
-export const DESCRIPTION = 'Hello! This is a personal website which contains information about my research, publications, and projects. '
+export const DESCRIPTION = 'Personal website of Gianluca Aguzzi, Postdoctoral Researcher at the University of Bologna, focusing on collective adaptive systems, emergence, and complexity.'
