@@ -31,6 +31,31 @@ const pageTitle = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={DESCRIPTION} />
+		
+		<!-- Structured Data (JSON-LD) per Google -->
+		<script type="application/ld+json" is:inline>
+			{
+			  "@context": "https://schema.org",
+			  "@type": "Person",
+			  "name": "Gianluca Aguzzi",
+			  "jobTitle": "Postdoctoral Researcher",
+			  "affiliation": {
+				"@type": "Organization",
+				"name": "University of Bologna"
+			  },
+			  "url": "https://cric96.github.io",
+			  "sameAs": [
+				"https://github.com/cric96",
+				"https://www.linkedin.com/in/gaguzzi/",
+				"https://scholar.google.com/citations?user=YY_KZzoAAAAJ"
+			  ]
+			}
+		</script>
 
 		<ViewTransitions />
 		<script is:inline>
