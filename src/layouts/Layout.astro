@@ -115,6 +115,10 @@ const pageTitle = [
 					></path>
 				</svg>
 			</button>
+			<nav class="flex gap-4 mb-12 text-sm font-medium">
+				<a href="/" class="no-underline hover:text-gray-900 dark:hover:text-white transition-colors">Home</a>
+				<a href="/seminars" class="no-underline hover:text-gray-900 dark:hover:text-white transition-colors">Seminars</a>
+			</nav>
 			<main class="max-w-10xl space-y-4">
 				<slot />
 			</main>
@@ -141,7 +145,7 @@ const pageTitle = [
 				document.querySelectorAll('h1').forEach(h1 => {
 					if (!h1.dataset.typed) {
 						h1.dataset.typed = 'true';
-						const text = h1.textContent;
+						const text = h1.textContent || '';
 						h1.textContent = '';
 						h1.style.width = 'fit-content';
 						h1.style.animation = 'none'; // Rimuove l'animazione CSS
