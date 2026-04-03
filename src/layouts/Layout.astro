@@ -111,6 +111,26 @@ const pageTitle = [
 						);
 					});
 				}
+
+				// Typewriter effect per h1 per evitare il problema dello spazio bianco
+				document.querySelectorAll('h1').forEach(h1 => {
+					if (!h1.dataset.typed) {
+						h1.dataset.typed = 'true';
+						const text = h1.textContent;
+						h1.textContent = '';
+						h1.style.width = 'fit-content';
+						h1.style.animation = 'none'; // Rimuove l'animazione CSS
+						
+						let i = 0;
+						setTimeout(() => {
+							const interval = setInterval(() => {
+								h1.textContent = text.substring(0, i + 1);
+								i++;
+								if (i >= text.length) clearInterval(interval);
+							}, 1500 / Math.max(text.length, 1));
+						}, 800);
+					}
+				});
 			});
 		</script>
 	</body>
@@ -194,7 +214,7 @@ const pageTitle = [
 	html,
 	html.light {
 		font-family: "JetBrains Mono", system-ui, sans-serif;
-		font-size: 18px;
+		font-size: 22px;
 		line-height: 1.6;
 		background: #fafafa;
 		background-image: radial-gradient(
@@ -247,7 +267,7 @@ const pageTitle = [
 
 	@media (max-width: 640px) {
 		html {
-			font-size: 14px;
+			font-size: 15px;
 		}
 	}
 
@@ -265,7 +285,7 @@ const pageTitle = [
 		display: inline-block;
 		overflow: hidden;
 		white-space: nowrap;
-		animation: typewriter 0.8s steps(11, end) forwards;
+		animation: typewriter 1.5s steps(15, end) 0.8s forwards;
 		width: 0;
 	}
 
