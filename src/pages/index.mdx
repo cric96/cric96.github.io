@@ -6,10 +6,20 @@ title:
 
 import Link from '../components/Link.astro'
 
+<div class="flex items-center gap-6 mb-8 mt-4">
+  <img src="/me.png" alt="Gianluca Aguzzi" class="w-32 h-32 rounded-full object-cover shadow-lg" />
+  <div>
+    # Gianluca Aguzzi
+    Postdoctoral Researcher and Adjunct Professor at the University of Bologna. 
+  </div>
+</div>
 
+<div class="social-links-container mb-8">
+	<Link icon="mdi:instagram" href="https://www.instagram.com/gpaggi96/"/> 
+	<Link icon="mdi:github" href="https://github.com/cric96"/> 
+	<Link icon="mdi:linkedin" href="https://www.linkedin.com/in/gaguzzi/"/> 
+</div> 
 
-# Hey Folks! 
-I'm Gianluca Aguzzi, a postdoctoral researcher at the University of Bologna. 
 I'm fascinated by all things related to [emergence](https://en.wikipedia.org/wiki/Emergence) and [complexity](https://en.wikipedia.org/wiki/Complex_system). 
 My research focuses on engineering [collective adaptive systems](https://www.unige.ch/cui/cas/).
 
@@ -18,14 +28,6 @@ In this field, I am interested in both manual techniques like [aggregate computi
 Recently, I've started exploring the application of foundational models in software engineering, from requirement management to development.
 
 Beyond research, I'm a huge Scala enthusiast, and in my free time (if it even exists!), I use my Nintendo Switch to unwind and reflect ( ˘ᴗ˘ )
-## // Teaching
-
-Currently, I'm also serving as an adjunct professor here. 
-For the latest updates on my courses, please refer to the [official website](https://www.unibo.it/sitoweb/gianluca.aguzzi).
-
-## // Thesis
-If you are interested in themes like swarm robotics, autonomous agents with LLMs, or multi-agent reinforcement learning, feel free to reach out to me. I'm always looking for motivated students to work with. If you would like to discuss some ideas, just send me an email!
-
 
 ## // Me on the web
 
@@ -36,14 +38,46 @@ To keep up with my latest research, you can connect with me here:
 - **Curriculum Vitae**: [Full](https://github.com/cric96/curriculum-vitae/releases/latest/download/cv-eng.pdf) - [Short](https://github.com/cric96/resume/releases/latest/download/resume.pdf)
 
 
-## // Socials
-I'm not really an active social media user, but you can find me on these networks:
-<div class="social-links-container">
-	<Link icon="mdi:instagram" href="https://www.instagram.com/gpaggi96/"/> 
-	<Link icon="mdi:github" href="https://github.com/cric96"/> 
-	<Link icon="mdi:linkedin" href="https://www.linkedin.com/in/gaguzzi/"/> 
-</div> 
+## // Projects
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-8 text-sm">
+  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+    <strong class="text-base text-gray-900 dark:text-gray-100">[ScaFi](https://github.com/scafi/scafi)</strong>
+    <p class="mt-1">Core contributor. Scala framework for aggregate programming, including tools like [ScaFi Web](https://ieeexplore.ieee.org/document/10771268) and [ScaFi Blocks](https://github.com/cric96/ScaFi-Blocks).</p>
+  </div>
+  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+    <strong class="text-base text-gray-900 dark:text-gray-100">[Phyelds](https://github.com/phyelds/phyelds)</strong>
+    <p class="mt-1">A Python framework designed to bring aggregate programming concepts and field-based coordination to Python.</p>
+  </div>
+  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+    <strong class="text-base text-gray-900 dark:text-gray-100">[SHAC++](https://f14-bertolotti.github.io/shacpp/)</strong>
+    <p class="mt-1">A novel algorithm for managing multi-agent systems using differentiable reinforcement learning.</p>
+  </div>
+  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+    <strong class="text-base text-gray-900 dark:text-gray-100">[Project Emerge](https://github.com/Project-Emerge)</strong>
+    <p class="mt-1">A hands-on project showcased at the European Researchers' Night featuring the creation of real, autonomous drones.</p>
+  </div>
+</div>
+
+## // Teaching
+
+Currently, I'm serving as an adjunct professor here at the University of Bologna. I am involved in the following courses:
+- **Advanced Software Modelling and Design (Module 2)** – Master's Degree in Computer Science and Engineering.
+- **Paradigmi di Programmazione e Sviluppo (Module 2)** – Master's Degree in Computer Science and Engineering.
+- **Progettazione e Sviluppo del Software (Module 2)** – Bachelor's Degree in Computer Systems Technologies.
+
+For the latest updates on my courses, please refer to the [official website](https://www.unibo.it/sitoweb/gianluca.aguzzi).
+
+## // Random things I'm proud of
+
+Here are a few special achievements and events I've been involved in recently:
+- 🎤 **[Invited speaker at Scala Italy](http://2023.scala-italy.it/speakers/gianluca-aguzzi.html)**: Had the great opportunity to speak and share my passion for Scala.
+- 🤖 **[Minerva LLM Seminar](https://www.nuovaciviltadellemacchine.it/intelligenza-artificiale-secondo-ciclo-secondo-incontro-3/)**: Hosted an engaging, accessible seminar breaking down Large Language Models.
+- 💻 **[CRIAD Coding Activities](https://www.innova-mente.org/code-to-learn-il-computer-come-creta/)**: Shared the concepts of computational thinking with schools and children through engaging tech initiatives.
+- 🌌 **[European Researchers' Night](https://www.nottedeiricercatori-society.eu/eventi/lunione-fa-la-forza-sciami-di-droni)**: Brought our research to the public and shared the magic of science.
+
 
 <div class="star-divider">✦ ✦ ✦ ✦ ✦</div>
 For further information, please reach out to me via email:
 <strong style="color: rgb(var(--accent));">gianluca.aguzzi at unibo.it</strong>
+
