@@ -25,7 +25,7 @@ const pageTitle = [
 ---
 
 <!DOCTYPE html>
-<html lang="en" transition:animate={slide({ duration: "1s" })}>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={DESCRIPTION} />
@@ -105,14 +105,22 @@ const pageTitle = [
 			document.addEventListener("astro:after-swap", setTheme);
 		</script>
 	</head>
-	<body class={`text-gray-500 dark:text-gray-100 ${isHome ? "is-home" : ""}`}>
-		<div class="max-w-5xl mx-auto pt-8 pb-32 px-10 relative break-words min-h-screen">
-			<button
-				id="theme-toggle"
-				class="absolute top-8 right-10 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-				aria-label="Toggle theme"
-			>
-				<svg
+	<body class={`text-gray-500 dark:text-gray-100 ${isHome ? "is-home" : ""} overflow-x-hidden`}>
+		<div class="max-w-5xl mx-auto pt-8 pb-32 px-4 sm:px-10 relative break-words min-h-screen">
+			<div class="flex items-start justify-between mb-12 gap-2" transition:name="header">
+				<nav class="flex flex-wrap items-center gap-1 sm:gap-2 text-sm font-medium">
+					<a href="/" class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline transition-all ${isHome ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Home</a>
+					<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
+					<a href="/talks" class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline transition-all ${isTalks ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Talks</a>
+					<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
+					<a href="/publications" class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline transition-all ${isPublications ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Pubs</a>
+				</nav>
+				<button
+					id="theme-toggle"
+					class="p-2 -mr-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex-shrink-0"
+					aria-label="Toggle theme"
+				>
+					<svg
 					id="theme-icon-light"
 					class="w-6 h-6 hidden dark:block"
 					xmlns="http://www.w3.org/2000/svg"
@@ -141,22 +149,16 @@ const pageTitle = [
 					></path>
 				</svg>
 			</button>
-			<nav class="flex items-center gap-2 mb-12 text-sm font-medium">
-				<a href="/" class={`px-3 py-1.5 rounded-lg no-underline transition-all ${isHome ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Home</a>
-				<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
-				<a href="/talks" class={`px-3 py-1.5 rounded-lg no-underline transition-all ${isTalks ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Talks</a>
-				<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
-				<a href="/publications" class={`px-3 py-1.5 rounded-lg no-underline transition-all ${isPublications ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Publications</a>
-			</nav>
-			<main class="max-w-10xl space-y-4">
+			</div>
+			<main class="max-w-10xl space-y-4" transition:animate={slide({ duration: "1s" })} transition:name="main-content">
 				<slot />
 			</main>
 
-			<div class="mt-4">
+			<div class="mt-4" transition:name="back-link">
 				{!isHome && <Link href="/" icon="mdi:arrow-left" />}
 			</div>
 
-			<footer class="absolute bottom-8 left-0 w-full flex flex-col items-center justify-center pointer-events-none px-10 text-center">
+			<footer class="absolute bottom-8 left-0 w-full flex flex-col items-center justify-center pointer-events-none px-10 text-center" transition:name="footer">
 				<div class="mb-4 select-none" style="color: rgba(var(--accent-light), 0.5); letter-spacing: 0.8rem; margin-left: 0.8rem;">
 					✦ ✦ ✦ ✦ ✦
 				</div>

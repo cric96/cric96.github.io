@@ -13,7 +13,7 @@ A selection of my scientific publications. All my publications are available in 
 {Array.from(new Set(publications.map(p => p.year))).sort((a,b) => b - a).map(year => (
   <>
     <h2 id={year.toString()}>{year}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-8 text-sm">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 mb-8 text-sm">
       {publications.filter(p => p.year === year).map((pub) => (
         <PublicationCard 
           title={pub.title}
