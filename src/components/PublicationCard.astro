@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 interface Props {
 	title: string;
 	venue: string;
@@ -39,8 +41,8 @@ const gradientStyle = `background: linear-gradient(${angle}deg, ${color1}, ${col
     <div class="flex items-start justify-between gap-2">
       <strong class="text-base text-gray-900 dark:text-gray-100">{title}</strong>
       {featured && (
-        <span class="flex-shrink-0 text-lg" title="Featured Publication">
-          ⭐
+        <span class="flex-shrink-0 text-yellow-500" title="Featured Publication">
+          <Icon name="mdi:star" class="w-5 h-5" />
         </span>
       )}
     </div>

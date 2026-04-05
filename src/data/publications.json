@@ -56,7 +56,7 @@
     "doi": "10.46298/lmcs-21(3:13)2025",
     "authors": "Gianluca Aguzzi, Roberto Casadei, Mirko Viroli",
     "description": "Introduces MacroSwarm, a Scala-based framework that enables the compositional design of complex swarm behaviors using field-based abstractions and aggregate computing.",
-    "image": "",
+    "image": "/images/pubs/macroswarm.png",
     "featured": true
   },
   {
@@ -76,7 +76,7 @@
     "doi": "10.1145/3712004",
     "authors": "Roberto Casadei, Gianluca Aguzzi, Giorgio Audrito, Ferruccio Damiani, Danilo Pianini, Giordano Scarso, Gianluca Torta, Mirko Viroli",
     "description": "Outlines a software engineering methodology for collective cyber-physical ecosystems, focusing on the coordination and adaptive management of large-scale distributed systems.",
-    "image": "",
+    "image": "/images/pubs/tosem.png",
     "featured": true
   },
   {
@@ -86,7 +86,7 @@
     "doi": "10.46298/lmcs-22(1:19)2026",
     "authors": "Davide Domini, Gianluca Aguzzi, Lukas Esterle, Mirko Viroli",
     "description": "FBFL proposes a field-based coordination strategy for federated learning to handle data heterogeneity by leveraging spatial relationships and local model aggregation.",
-    "image": "",
+    "image": "/images/pubs/fbfl.png",
     "featured": true
   },
   {
@@ -96,7 +96,7 @@
     "doi": "10.1016/j.smhl.2025.100552",
     "authors": "Sara Montagna, Stefano Ferretti, Lorenz Cuno Klopfenstein, Michelangelo Ungolo, Martino Francesco Pengo, Gianluca Aguzzi, Matteo Magnini",
     "description": "This research presents a privacy-preserving framework for LLM-based chatbots designed to assist hypertensive patients in self-managing their condition securely.",
-    "image": "",
+    "image": "/images/pubs/chatbot.png",
     "featured": false
   },
   {
@@ -116,7 +116,7 @@
     "doi": "10.1145/3672608.3707923",
     "authors": "Nicol\u00f2 Malucelli, Davide Domini, Gianluca Aguzzi, Mirko Viroli",
     "description": "This study explores decentralized training strategies for multi-agent reinforcement learning where agents learn and share knowledge only with their immediate neighbors to improve scalability.",
-    "image": "",
+    "image": "/images/pubs/sac.png",
     "featured": false
   },
   {
@@ -126,7 +126,7 @@
     "doi": "10.1007/978-3-031-95841-0_1",
     "authors": "Gianluca Aguzzi, Matteo Magnini, Martino Francesco Pengo, Mirko Viroli, Sara Montagna",
     "description": "This paper proposes a fine-tuning pipeline for developing small, privacy-preserving healthcare chatbots that can be deployed locally using limited conversational data, addressing concerns about privacy and reliability in remote LLM services.",
-    "image": "",
+    "image": "/images/pubs/aime.png",
     "featured": false
   },
   {
@@ -136,7 +136,7 @@
     "doi": "10.1145/3758326",
     "authors": "Gianluca Aguzzi, Nicolas Farabegoli, Mirko Viroli",
     "description": "This paper explores leveraging Large Language Models (LLMs) for macroprogramming IoT systems, providing a language-based approach to simplify the coordination of multiple devices and capture global system behaviors.",
-    "image": "",
+    "image": "/images/pubs/iot-transaction.png",
     "featured": true
   },
   {
@@ -146,7 +146,7 @@
     "doi": "10.1109/ACSOS66086.2025.00017",
     "authors": "Gianluca Aguzzi, Martina Baiardi, Angela Cortecchia, Branko Miloradovic, Alessandro Papadopoulos, Danilo Pianini, Mirko Viroli",
     "description": "This paper introduces a field-based coordination strategy to enable runtime task replanning in swarm robotics missions using aggregate computing, ensuring adaptivity and robustness against robot failures in unpredictable environments.",
-    "image": "",
+    "image": "/images/pubs/field-replanning.png",
     "featured": false
   },
   {
@@ -156,7 +156,7 @@
     "doi": "10.3233/FAIA251138",
     "authors": "Francesco Bertolotti, Gianluca Aguzzi, Walter Cazzola, Mirko Viroli, others",
     "description": "This paper presents SHAC++, a neural network-based framework that improves reinforcement learning efficiency by removing the requirement for fully differentiable environments and extending support to multi-agent scenarios.",
-    "image": "",
+    "image": "/images/pubs/shac++.png",
     "featured": true
   },
   {
@@ -206,7 +206,7 @@
     "doi": "10.1007/s10758-026-09956-9",
     "authors": "Michele Braccini, Gianluca Aguzzi, Paolo Baldini",
     "description": "This research compares the creative output of Large Language Models (LLMs) and humans in educational settings by analyzing response variability to determine how LLMs simulate human-like creativity.",
-    "image": "",
+    "image": "/images/pubs/unraveling.png",
     "featured": true
   }
 ]
