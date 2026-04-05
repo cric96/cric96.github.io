@@ -2,13 +2,14 @@
 interface Props {
 	href: string;
 	icon: string;
+	class?: string;
 }
 import { Icon } from "astro-icon/components";
-const { href, icon } = Astro.props;
+const { href, icon, class: className = "" } = Astro.props;
 ---
 
 <a
 	href={href}
-	class="no-underline inline-block transition-transform duration-300 hover:scale-110 hover:-translate-y-1"
-	><Icon name={icon} size="40" />
+	class={`no-underline inline-block transition-transform duration-300 hover:scale-110 hover:-translate-y-1 ${className}`}
+	><Icon name={icon} class="w-7 h-7 sm:w-8 sm:h-8" />
 </a>

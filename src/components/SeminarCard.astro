@@ -6,34 +6,12 @@ interface Props {
 	description: string;
 	linkHref: string;
 	linkText: string;
-	image?: string;
 }
 
-const { title, location, date, description, linkHref, linkText, image } = Astro.props;
-
-// Generate a deterministic gradient based on the title length and characters
-const hash = title.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
-const colors = [
-	'rgba(var(--accent), 0.15)',
-	'rgba(var(--accent-light), 0.15)',
-	'rgba(var(--accent-dark), 0.15)'
-];
-const color1 = colors[Math.abs(hash) % colors.length];
-const color2 = colors[Math.abs(hash + 1) % colors.length];
-const angle = Math.abs(hash) % 360;
-const gradientStyle = `background: linear-gradient(${angle}deg, ${color1}, ${color2});`;
+const { title, location, date, description, linkHref, linkText } = Astro.props;
 ---
 
-<div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors flex flex-col sm:flex-row gap-4">
-  {image ? (
-    <img src={image} alt={title} class="w-24 h-24 rounded object-cover shadow-sm flex-shrink-0" />
-  ) : (
-    <div 
-      class="w-24 h-24 rounded shadow-sm flex-shrink-0"
-      style={gradientStyle}
-    >
-    </div>
-  )}
+<div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
   <div>
     <strong class="text-base text-gray-900 dark:text-gray-100">{title}</strong>
     <div class="text-xs text-gray-400 mt-1 mb-2">{location} • {date}</div>

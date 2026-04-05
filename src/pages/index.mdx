@@ -6,19 +6,21 @@ title:
 
 import Link from '../components/Link.astro'
 
-<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 mt-4 text-center sm:text-left">
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12 mt-4 text-center sm:text-left">
   <img src="/me.png" alt="Gianluca Aguzzi" class="w-32 h-32 rounded-full object-cover shadow-lg flex-shrink-0" />
-  <div>
+  <div class="flex flex-col items-center sm:items-start">
     # Gianluca Aguzzi
     Postdoctoral Researcher and Adjunct Professor at the University of Bologna. 
+    
+    <div class="social-links-container !mt-4">
+      <Link icon="mdi:instagram" href="https://www.instagram.com/gpaggi96/"/> 
+      <Link icon="mdi:github" href="https://github.com/cric96"/> 
+      <Link icon="mdi:linkedin" href="https://www.linkedin.com/in/gaguzzi/"/> 
+    </div>
   </div>
 </div>
 
-<div class="social-links-container mb-8">
-	<Link icon="mdi:instagram" href="https://www.instagram.com/gpaggi96/"/> 
-	<Link icon="mdi:github" href="https://github.com/cric96"/> 
-	<Link icon="mdi:linkedin" href="https://www.linkedin.com/in/gaguzzi/"/> 
-</div> 
+## // Short bio
 
 I'm fascinated by all things related to [emergence](https://en.wikipedia.org/wiki/Emergence) and [complexity](https://en.wikipedia.org/wiki/Complex_system). 
 My research focuses on engineering [collective adaptive systems](https://www.unige.ch/cui/cas/).
@@ -79,9 +81,3 @@ Here are a few special achievements and events I've been involved in recently:
 - 🤖 **[Minerva LLM Seminar](https://www.nuovaciviltadellemacchine.it/intelligenza-artificiale-secondo-ciclo-secondo-incontro-3/)**: Hosted an engaging, accessible seminar breaking down Large Language Models.
 - 💻 **[CRIAD Coding Activities](https://www.innova-mente.org/code-to-learn-il-computer-come-creta/)**: Shared the concepts of computational thinking with schools and children through engaging tech initiatives.
 - 🌌 **[European Researchers' Night](https://www.nottedeiricercatori-society.eu/eventi/lunione-fa-la-forza-sciami-di-droni)**: Brought our research to the public and shared the magic of science.
-
-
-<div class="star-divider">✦ ✦ ✦ ✦ ✦</div>
-For further information, please reach out to me via email:
-<strong style="color: rgb(var(--accent));">gianluca.aguzzi at unibo.it</strong>
-
