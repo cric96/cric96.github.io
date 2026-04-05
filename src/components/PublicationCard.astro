@@ -1,0 +1,63 @@
+---
+interface Props {
+	title: string;
+	venue: string;
+	year: number;
+	image?: string;
+	description: string;
+	authors: string;
+	doi?: string;
+	featured?: boolean;
+}
+
+const { title, venue, year, image, description, authors, doi, featured } = Astro.props;
+
+// Generate a deterministic gradient based on the title length and characters
+const hash = title.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
+const colors = [
+	'rgba(var(--accent), 0.15)',
+	'rgba(var(--accent-light), 0.15)',
+	'rgba(var(--accent-dark), 0.15)'
+];
+const color1 = colors[Math.abs(hash) % colors.length];
+const color2 = colors[Math.abs(hash + 1) % colors.length];
+const angle = Math.abs(hash) % 360;
+const gradientStyle = `background: linear-gradient(${angle}deg, ${color1}, ${color2});`;
+---
+
+<div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors flex flex-col sm:flex-row gap-4">
+  {image ? (
+    <img src={image} alt={title} class="w-24 h-24 rounded object-cover shadow-sm flex-shrink-0" />
+  ) : (
+    <div 
+      class="w-24 h-24 rounded shadow-sm flex-shrink-0"
+      style={gradientStyle}
+    >
+    </div>
+  )}
+  <div>
+    <div class="flex items-start justify-between gap-2">
+      <strong class="text-base text-gray-900 dark:text-gray-100">{title}</strong>
+      {featured && (
+        <span class="flex-shrink-0 text-lg" title="Featured Publication">
+          ⭐
+        </span>
+      )}
+    </div>
+    <div class="text-xs text-gray-400 mt-1 mb-2">{venue} • {year}</div>
+    <div class="text-sm text-gray-500 mb-2 italic">{authors}</div>
+    {doi && (
+      <div class="mb-2">
+        <a 
+          href={`https://doi.org/${doi}`} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="text-xs font-mono text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+        >
+          DOI: {doi}
+        </a>
+      </div>
+    )}
+    <p class="mt-1 mb-3">{description}</p>
+  </div>
+</div>

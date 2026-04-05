@@ -13,6 +13,8 @@ interface Props {
 const { frontmatter } = Astro.props;
 
 const isHome = Astro.url.pathname === "/";
+const isTalks = Astro.url.pathname.startsWith("/talks");
+const isPublications = Astro.url.pathname.startsWith("/publications");
 
 const pageTitle = [
 	frontmatter.title ? frontmatter.title : undefined,
@@ -59,7 +61,24 @@ const pageTitle = [
 
 		<ViewTransitions />
 		<script is:inline>
-			const theme = (() => {
+			document.addEventListener("astro:before-preparation", (event) => {
+				const getPageIndex = (url) => {
+					const path = new URL(url, window.location.origin).pathname;
+					if (path === "/" || path === "") return 0;
+					if (path.startsWith("/talks")) return 1;
+					if (path.startsWith("/publications")) return 2;
+					return -1;
+				};
+
+				const currentIndex = getPageIndex(window.location.href);
+				const targetIndex = getPageIndex(event.to);
+
+				if (currentIndex !== -1 && targetIndex !== -1 && currentIndex !== targetIndex) {
+					event.direction = targetIndex > currentIndex ? "forward" : "back";
+				}
+			});
+
+			const getTheme = () => {
 				if (
 					typeof localStorage !== "undefined" &&
 					localStorage.getItem("theme")
@@ -70,13 +89,20 @@ const pageTitle = [
 					return "dark";
 				}
 				return "light";
-			})();
-			if (theme === "light") {
-				document.documentElement.classList.remove("dark");
-			} else {
-				document.documentElement.classList.add("dark");
-			}
-			window.localStorage.setItem("theme", theme);
+			};
+
+			const setTheme = () => {
+				const theme = getTheme();
+				if (theme === "light") {
+					document.documentElement.classList.remove("dark");
+				} else {
+					document.documentElement.classList.add("dark");
+				}
+				window.localStorage.setItem("theme", theme);
+			};
+
+			setTheme();
+			document.addEventListener("astro:after-swap", setTheme);
 		</script>
 	</head>
 	<body class={`text-gray-500 dark:text-gray-100 ${isHome ? "is-home" : ""}`}>
@@ -115,9 +141,12 @@ const pageTitle = [
 					></path>
 				</svg>
 			</button>
-			<nav class="flex gap-4 mb-12 text-sm font-medium">
-				<a href="/" class="no-underline hover:text-gray-900 dark:hover:text-white transition-colors">Home</a>
-				<a href="/talks" class="no-underline hover:text-gray-900 dark:hover:text-white transition-colors">Talks</a>
+			<nav class="flex items-center gap-2 mb-12 text-sm font-medium">
+				<a href="/" class={`px-3 py-1.5 rounded-lg no-underline transition-all ${isHome ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Home</a>
+				<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
+				<a href="/talks" class={`px-3 py-1.5 rounded-lg no-underline transition-all ${isTalks ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Talks</a>
+				<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
+				<a href="/publications" class={`px-3 py-1.5 rounded-lg no-underline transition-all ${isPublications ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Publications</a>
 			</nav>
 			<main class="max-w-10xl space-y-4">
 				<slot />

@@ -1,0 +1,31 @@
+---
+layout: ../layouts/Layout.astro
+title: "Publications"
+---
+
+import PublicationCard from '../components/PublicationCard.astro';
+import publications from '../data/publications.json';
+
+# Publications
+
+A selection of my scientific publications. All my publications are available in my [Curriculum Vitae](https://github.com/cric96/curriculum-vitae/releases/latest/download/cv-eng.pdf). For the full reference of each entry, please refer to the provided DOI link.
+
+{Array.from(new Set(publications.map(p => p.year))).sort((a,b) => b - a).map(year => (
+  <>
+    <h2 id={year.toString()}>{year}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-8 text-sm">
+      {publications.filter(p => p.year === year).map((pub) => (
+        <PublicationCard 
+          title={pub.title}
+          venue={pub.venue}
+          year={pub.year}
+          authors={pub.authors}
+          description={pub.description}
+          image={pub.image}
+          doi={pub.doi}
+          featured={pub.featured}
+        />
+      ))}
+    </div>
+  </>
+))}

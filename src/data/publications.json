@@ -1,0 +1,212 @@
+[
+  {
+    "title": "A programming approach to collective autonomy",
+    "venue": "Journal of Sensor and Actuator Networks",
+    "year": 2021,
+    "doi": "10.3390/jsan10020027",
+    "authors": "Roberto Casadei, Gianluca Aguzzi, Mirko Viroli",
+    "description": "This paper defines an agent control architecture for aggregate multi-agent systems and discusses how aggregate computing supports both individual and collective autonomy.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "Towards reinforcement learning-based aggregate computing",
+    "venue": "International Conference on Coordination Languages and Models",
+    "year": 2022,
+    "doi": "10.1007/978-3-031-08143-9_5",
+    "authors": "Gianluca Aguzzi, Roberto Casadei, Mirko Viroli",
+    "description": "This work proposes integrating reinforcement learning with aggregate computing to enable collective systems to learn and adapt their behaviors dynamically in uncertain environments.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "Scafi: A scala DSL and toolkit for aggregate programming",
+    "venue": "SoftwareX",
+    "year": 2022,
+    "doi": "10.1016/j.softx.2022.101248",
+    "authors": "Roberto Casadei, Mirko Viroli, Gianluca Aguzzi, Danilo Pianini",
+    "description": "This paper introduces ScaFi, a Scala-based domain-specific language and toolkit for engineering large-scale distributed systems using the aggregate programming paradigm.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "A field-based computing approach to sensing-driven clustering in robot swarms",
+    "venue": "Swarm Intelligence",
+    "year": 2023,
+    "doi": "10.1007/s11721-022-00215-y",
+    "authors": "Gianluca Aguzzi, Giorgio Audrito, Roberto Casadei, Ferruccio Damiani, Gianluca Torta, Mirko Viroli",
+    "description": "This paper presents a field-based approach for robot swarms to achieve robust and scalable clustering based on local sensing and aggregate programming.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "Dynamic decentralization domains for the internet of things",
+    "venue": "IEEE Internet Computing",
+    "year": 2022,
+    "doi": "10.1109/MIC.2022.3216753",
+    "authors": "Gianluca Aguzzi, Roberto Casadei, Danilo Pianini, Mirko Viroli",
+    "description": "This paper proposes dynamic decentralization domains (3D) as a mechanism to manage and adjust the scope of decentralized coordination in IoT systems.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "MacroSwarm: A field-based compositional framework for swarm programming",
+    "venue": "Logical Methods in Computer Science",
+    "year": 2025,
+    "doi": "10.46298/lmcs-21(3:13)2025",
+    "authors": "Gianluca Aguzzi, Roberto Casadei, Mirko Viroli",
+    "description": "Introduces MacroSwarm, a Scala-based framework that enables the compositional design of complex swarm behaviors using field-based abstractions and aggregate computing.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "Field-informed reinforcement learning of collective tasks with graph neural networks",
+    "venue": "2023 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)",
+    "year": 2023,
+    "doi": "10.1109/ACSOS58161.2023.00021",
+    "authors": "Gianluca Aguzzi, Mirko Viroli, Lukas Esterle",
+    "description": "Proposes a framework that leverages aggregate computing fields to provide local spatial context to Graph Neural Networks, improving reinforcement learning for collective tasks.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "Software engineering for collective cyber-physical ecosystems",
+    "venue": "ACM Transactions on Software Engineering and Methodology",
+    "year": 2025,
+    "doi": "10.1145/3712004",
+    "authors": "Roberto Casadei, Gianluca Aguzzi, Giorgio Audrito, Ferruccio Damiani, Danilo Pianini, Giordano Scarso, Gianluca Torta, Mirko Viroli",
+    "description": "Outlines a software engineering methodology for collective cyber-physical ecosystems, focusing on the coordination and adaptive management of large-scale distributed systems.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "FBFL: A field-based coordination approach for data heterogeneity in federated learning",
+    "venue": "Logical Methods in Computer Science",
+    "year": 2026,
+    "doi": "10.46298/lmcs-22(1:19)2026",
+    "authors": "Davide Domini, Gianluca Aguzzi, Lukas Esterle, Mirko Viroli",
+    "description": "FBFL proposes a field-based coordination strategy for federated learning to handle data heterogeneity by leveraging spatial relationships and local model aggregation.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "Privacy-preserving LLM-based chatbots for hypertensive patient self-management",
+    "venue": "Smart Health",
+    "year": 2025,
+    "doi": "10.1016/j.smhl.2025.100552",
+    "authors": "Sara Montagna, Stefano Ferretti, Lorenz Cuno Klopfenstein, Michelangelo Ungolo, Martino Francesco Pengo, Gianluca Aguzzi, Matteo Magnini",
+    "description": "This research presents a privacy-preserving framework for LLM-based chatbots designed to assist hypertensive patients in self-managing their condition securely.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "A Reusable Simulation Pipeline for Many-Agent Reinforcement Learning",
+    "venue": "2024 28th International Symposium on Distributed Simulation and Real Time Applications (DS-RT)",
+    "year": 2024,
+    "doi": "10.1109/DS-RT62209.2024.00021",
+    "authors": "Davide Domini, Gianluca Aguzzi, Danilo Pianini, Mirko Viroli",
+    "description": "This work introduces a modular and reusable simulation pipeline that facilitates the training and evaluation of reinforcement learning algorithms in many-agent systems.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "Neighbor-based decentralized training strategies for multi-agent reinforcement learning",
+    "venue": "Proceedings of the 40th ACM/SIGAPP Symposium on Applied Computing",
+    "year": 2025,
+    "doi": "10.1145/3672608.3707923",
+    "authors": "Nicol\u00f2 Malucelli, Davide Domini, Gianluca Aguzzi, Mirko Viroli",
+    "description": "This study explores decentralized training strategies for multi-agent reinforcement learning where agents learn and share knowledge only with their immediate neighbors to improve scalability.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "A Fine-Tuning Pipeline with Small Conversational Data for Healthcare Chatbot",
+    "venue": "International Conference on Artificial Intelligence in Medicine",
+    "year": 2025,
+    "doi": "10.1007/978-3-031-95841-0_1",
+    "authors": "Gianluca Aguzzi, Matteo Magnini, Martino Francesco Pengo, Mirko Viroli, Sara Montagna",
+    "description": "This paper proposes a fine-tuning pipeline for developing small, privacy-preserving healthcare chatbots that can be deployed locally using limited conversational data, addressing concerns about privacy and reliability in remote LLM services.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "A language-based approach to macroprogramming for iot systems through large language models",
+    "venue": "ACM Transactions on Internet of Things",
+    "year": 2025,
+    "doi": "10.1145/3758326",
+    "authors": "Gianluca Aguzzi, Nicolas Farabegoli, Mirko Viroli",
+    "description": "This paper explores leveraging Large Language Models (LLMs) for macroprogramming IoT systems, providing a language-based approach to simplify the coordination of multiple devices and capture global system behaviors.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "A Field-based Approach for Runtime Replanning in Swarm Robotics Missions",
+    "venue": "2025 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)",
+    "year": 2025,
+    "doi": "10.1109/ACSOS66086.2025.00017",
+    "authors": "Gianluca Aguzzi, Martina Baiardi, Angela Cortecchia, Branko Miloradovic, Alessandro Papadopoulos, Danilo Pianini, Mirko Viroli",
+    "description": "This paper introduces a field-based coordination strategy to enable runtime task replanning in swarm robotics missions using aggregate computing, ensuring adaptivity and robustness against robot failures in unpredictable environments.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "SHAC++: A Neural Network to Rule All Differentiable Simulators",
+    "venue": "FRONTIERS IN ARTIFICIAL INTELLIGENCE AND APPLICATIONS",
+    "year": 2025,
+    "doi": "10.3233/FAIA251138",
+    "authors": "Francesco Bertolotti, Gianluca Aguzzi, Walter Cazzola, Mirko Viroli, others",
+    "description": "This paper presents SHAC++, a neural network-based framework that improves reinforcement learning efficiency by removing the requirement for fully differentiable environments and extending support to multi-agent scenarios.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "Exploiting GenAI for plan generation in BDI agents",
+    "venue": "FRONTIERS IN ARTIFICIAL INTELLIGENCE AND APPLICATIONS",
+    "year": 2025,
+    "doi": "10.3233/FAIA251223",
+    "authors": "Giovanni Ciatto, Gianluca Aguzzi, Riccardo Battistini, Martina Baiardi, Samuele Burattini, Alessandro Ricci, others",
+    "description": "This paper investigates the integration of Generative AI into Belief-Desire-Intention (BDI) agents to autonomously generate plans, leveraging the natural language understanding and reasoning capabilities of LLMs to enhance agent adaptability.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "Scaling swarm coordination with gnns\u2014how far can we go?",
+    "venue": "AI",
+    "year": 2025,
+    "doi": "10.3390/ai6110282",
+    "authors": "Gianluca Aguzzi, Davide Domini, Filippo Venturini, Mirko Viroli",
+    "description": "This paper investigates the scalability limits of decentralized swarm robotics coordination using Graph Neural Networks (GNNs), exploring how these models perform as the number of agents increases significantly.",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "RAG-Enhanced Open SLMs for Hypertension Management Chatbots",
+    "venue": "Journal of Medical Systems",
+    "year": 2025,
+    "doi": "10.1007/s10916-025-02297-7",
+    "authors": "Gianluca Aguzzi, Matteo Magnini, Aqila Farahmand, Stefano Ferretti, Martino Francesco Pengo, Sara Montagna",
+    "description": "The study presents a medical chatbot system for hypertension management that leverages Retrieval-Augmented Generation (RAG) to enhance the reliability and accuracy of open-source Small Language Models (SLMs).",
+    "image": "",
+    "featured": false
+  },
+  {
+    "title": "Decentralized proximity-aware clustering for collective self-federated learning",
+    "venue": "Internet of Things",
+    "year": 2025,
+    "doi": "10.1016/j.iot.2025.101841",
+    "authors": "Davide Domini, Nicolas Farabegoli, Gianluca Aguzzi, Mirko Viroli, Lukas Esterle",
+    "description": "This work proposes a decentralized, proximity-aware clustering mechanism for IoT devices to enable autonomous, self-organizing federated learning in networks with localized communication.",
+    "image": "",
+    "featured": true
+  },
+  {
+    "title": "Unraveling creativity through variability: A comparison of LLMs and humans in an educational Q&A scenario",
+    "venue": "Technology, Knowledge and Learning",
+    "year": 2026,
+    "doi": "10.1007/s10758-026-09956-9",
+    "authors": "Michele Braccini, Gianluca Aguzzi, Paolo Baldini",
+    "description": "This research compares the creative output of Large Language Models (LLMs) and humans in educational settings by analyzing response variability to determine how LLMs simulate human-like creativity.",
+    "image": "",
+    "featured": true
+  }
+]
