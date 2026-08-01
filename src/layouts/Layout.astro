@@ -7,22 +7,32 @@ import { ClientRouter, slide } from "astro:transitions";
 import Link from "../components/Link.astro";
 import { SITE_NAME, DESCRIPTION } from "../../src/config";
 interface Props {
-	title: string;
+	title?: string;
 }
 
 // @ts-ignore - TODO figure otu type safety on this
-const { frontmatter } = Astro.props;
+const { frontmatter, title } = Astro.props;
 
 const isHome = Astro.url.pathname === "/";
+const isBlog = Astro.url.pathname.startsWith("/blog");
 const isTalks = Astro.url.pathname.startsWith("/talks");
 const isPublications = Astro.url.pathname.startsWith("/publications");
 
+// .mdx pages hand the layout a `frontmatter` object; .astro pages pass `title` directly.
 const pageTitle = [
-	frontmatter.title ? frontmatter.title : undefined,
+	frontmatter?.title ?? title ?? undefined,
 	isHome ? SITE_NAME : undefined,
 ]
 	.filter(Boolean)
 	.join(" | ");
+
+// Order here is the source of truth for the view-transition slide direction below.
+const navItems = [
+	{ href: "/", label: "Home", active: isHome },
+	{ href: "/talks", label: "Talks", active: isTalks },
+	{ href: "/publications", label: "Pubs", active: isPublications },
+	{ href: "/blog", label: "Blog", active: isBlog },
+];
 ---
 
 <!DOCTYPE html>
@@ -68,6 +78,7 @@ const pageTitle = [
 					if (path === "/" || path === "") return 0;
 					if (path.startsWith("/talks")) return 1;
 					if (path.startsWith("/publications")) return 2;
+					if (path.startsWith("/blog")) return 3;
 					return -1;
 				};
 
@@ -110,11 +121,16 @@ const pageTitle = [
 		<div class="max-w-5xl mx-auto pt-8 pb-32 px-4 sm:px-10 relative break-words min-h-screen">
 			<div class="flex items-start justify-between mb-12 gap-2" transition:name="header">
 				<nav class="flex flex-wrap items-center gap-1 sm:gap-2 text-sm font-medium">
-					<a href="/" class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline transition-all ${isHome ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Home</a>
-					<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
-					<a href="/talks" class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline transition-all ${isTalks ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Talks</a>
-					<span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>
-					<a href="/publications" class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline transition-all ${isPublications ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}>Pubs</a>
+					{navItems.map((item, i) => (
+						<>
+							{i > 0 && <span class="w-px h-4 bg-gray-200 dark:bg-gray-800 select-none"></span>}
+							<a
+								href={item.href}
+								aria-current={item.active ? "page" : undefined}
+								class={`px-2 sm:px-3 py-1.5 rounded-lg no-underline whitespace-nowrap transition-all ${item.active ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white'}`}
+							>{item.label}</a>
+						</>
+					))}
 				</nav>
 				<button
 					id="theme-toggle"

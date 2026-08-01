@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostRow from "../../components/PostRow.astro";
+import { readingTime, shortDate, isoDate } from "../../utils/post";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const years = Array.from(new Set(posts.map((p) => p.data.date.getUTCFullYear())));
+---
+
+<Layout title="Blog">
+	<h1>Blog</h1>
+
+	<p>
+		Occasional notes on research life, the things I build, and whatever I happen to
+		be thinking about. Less formal than a <a href="/publications">paper</a>, more
+		durable than a conversation.
+	</p>
+
+	{
+		years.map((year) => (
+			<>
+				<h2 id={year.toString()}>{year}</h2>
+				<div class="mt-4 mb-8 border-t border-gray-200 dark:border-gray-800">
+					{posts
+						.filter((post) => post.data.date.getUTCFullYear() === year)
+						.map((post) => (
+							<PostRow
+								href={`/blog/${post.id}/`}
+								title={post.data.title}
+								description={post.data.description}
+								date={shortDate(post.data.date)}
+								datetime={isoDate(post.data.date)}
+								minutes={readingTime(post.body)}
+								tags={post.data.tags}
+							/>
+						))}
+				</div>
+			</>
+		))
+	}
+
+	{
+		posts.length === 0 && (
+			<p class="text-sm text-gray-400">Nothing published yet — come back soon.</p>
+		)
+	}
+</Layout>

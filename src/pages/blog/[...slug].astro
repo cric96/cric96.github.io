@@ -1,0 +1,102 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { readingTime, longDate, isoDate } from "../../utils/post";
+import "../../styles/post.css";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog", ({ data }) => !data.draft);
+	return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+interface Props {
+	post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props as Props;
+const { Content } = await render(post);
+const minutes = readingTime(post.body);
+---
+
+<Layout title={post.data.title}>
+	<article class="post max-w-[42em]">
+		<header class="mb-8 pb-6 border-b border-gray-200 dark:border-gray-800">
+			<div
+				class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-gray-400"
+			>
+				<time datetime={isoDate(post.data.date)} class="tabular-nums whitespace-nowrap">
+					{longDate(post.data.date)}
+				</time>
+				<span class="whitespace-nowrap">{minutes} min read</span>
+			</div>
+			<h1 class="!mt-2">{post.data.title}</h1>
+			<p class="text-sm text-gray-500 dark:text-gray-400">{post.data.description}</p>
+			{
+				post.data.tags.length > 0 && (
+					<div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
+						{post.data.tags.map((tag) => <span class="whitespace-nowrap"><span style="color: rgb(var(--accent-light))">#</span>{tag}</span>)}
+					</div>
+				)
+			}
+		</header>
+
+		<div class="post-body">
+			<Content />
+		</div>
+
+		<footer class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
+			<a href="/blog/" class="text-sm">&larr; All posts</a>
+		</footer>
+	</article>
+</Layout>
+
+<script>
+	// Highlights are lit by CSS. This only un-lights the ones that start below
+	// the fold so they sweep in on scroll — so the worst case, if anything here
+	// fails, is that every highlight is simply already drawn.
+	document.addEventListener("astro:page-load", () => {
+		const body = document.querySelector(".post-body");
+		if (!body || !("IntersectionObserver" in window)) return;
+
+		const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		if (reduced) return;
+
+		const pending = Array.from(body.querySelectorAll("mark")).filter(
+			(mark) => mark.getBoundingClientRect().top > window.innerHeight * 0.9
+		);
+		if (pending.length === 0) return;
+
+		const light = (mark: Element) => {
+			mark.classList.add("is-sweepable");
+			// Next frame, so the transition has a start value to animate from.
+			requestAnimationFrame(() => mark.classList.remove("is-pending"));
+		};
+
+		pending.forEach((mark) => mark.classList.add("is-pending"));
+
+		let observerAlive = false;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				observerAlive = true;
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+					light(entry.target);
+					observer.unobserve(entry.target);
+				});
+			},
+			{ rootMargin: "0px 0px -12% 0px" }
+		);
+
+		pending.forEach((mark) => observer.observe(mark));
+
+		// An observer always reports on its targets shortly after observe().
+		// If nothing came back, it isn't working here — draw everything rather
+		// than leave the highlights invisible.
+		window.setTimeout(() => {
+			if (observerAlive) return;
+			observer.disconnect();
+			pending.forEach(light);
+		}, 2000);
+	});
+</script>
