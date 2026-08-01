@@ -9,7 +9,7 @@ As a researcher with six years of experience, I should be used to failing — an
 
 We are exposed to several sources of failure (and <mark>they are endemic</mark>: they exist to promote the excellence and sustainability of the system). Most of them are related to the scientific literature. Why, someone might ask?
 
-A scientific paper is very different from a blog post or an article in a traditional newspaper, both in its goal and in the people who read it. Blog posts and newspaper articles typically aim to get the reader interested in what the author wrote, as well as to convey *personal* messages (I know, this is an oversimplification, but as a scientist, I'm used to simplifying reality :) {see the famous ["spherical cow"](https://en.wikipedia.org/wiki/Spherical_cow) joke about physicists modeling animals as spheres}).
+A scientific paper is very different from a blog post or an article in a traditional newspaper, both in its goal and in the people who read it. Blog posts and newspaper articles typically aim to get the reader interested in what the author wrote, as well as to convey *personal* messages (I know, this is an oversimplification, but as a scientist, I'm used to simplifying reality :), see the famous ["spherical cow"](https://en.wikipedia.org/wiki/Spherical_cow) joke about physicists modeling animals as spheres).
 
 Scientific papers are typically different: the goal is to share a *result* coming from *experiments* or *data* (at least in the empirical sciences). But you must convince the reader that what you wrote is "objectively" true (that is, it should not depend on subjectivity), correct, and "novel" (namely, something new).
 
