@@ -181,28 +181,6 @@ const pageTitle = [
 						);
 					});
 				}
-
-				// Typewriter effect per h1 solo in home page
-				if (document.body.classList.contains('is-home')) {
-					document.querySelectorAll('h1').forEach(h1 => {
-						if (!h1.dataset.typed) {
-							h1.dataset.typed = 'true';
-							const text = h1.textContent || '';
-							h1.textContent = '';
-							h1.style.width = 'fit-content';
-							h1.style.animation = 'none'; // Rimuove l'animazione CSS
-							
-							let i = 0;
-							setTimeout(() => {
-								const interval = setInterval(() => {
-									h1.textContent = text.substring(0, i + 1);
-									i++;
-									if (i >= text.length) clearInterval(interval);
-								}, 1500 / Math.max(text.length, 1));
-							}, 800);
-						}
-					});
-				}
 			});
 		</script>
 	</body>
@@ -248,15 +226,6 @@ const pageTitle = [
 		to {
 			opacity: 1;
 			transform: translateY(0);
-		}
-	}
-
-	@keyframes typewriter {
-		from {
-			width: 0;
-		}
-		to {
-			width: 100%;
 		}
 	}
 
@@ -344,13 +313,6 @@ const pageTitle = [
 		font-weight: 600;
 		margin-bottom: 1rem;
 		display: inline-block;
-	}
-
-	body.is-home h1 {
-		overflow: hidden;
-		white-space: nowrap;
-		animation: typewriter 1.5s steps(15, end) 0.8s forwards;
-		width: 0;
 	}
 
 	body.is-home h1::after {
