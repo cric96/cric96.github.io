@@ -67,4 +67,4 @@ So, why am I writing all of this? Not to complain (well, maybe a little :)), but
 
 If you are a researcher collecting rejections right now: <mark>you are not alone</mark>, and they say very little about your value as a scientist (and nothing about your value as a person). Take your time to be disappointed, then go back to the part you love — the process. In the end, that is the only thing we can really control.
 
-As for me, I will revise that paper, rewrite that project, and submit another ASN application. After all, statistically speaking, sooner or later something has to be accepted, right? :)
+As for me, I will revise that paper and rewrite that project. And, in the end, I did obtain the ASN in computer engineering. So perhaps, statistically speaking, sooner or later something does get accepted. :)
