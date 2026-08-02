@@ -14,6 +14,7 @@ interface Props {
 const { frontmatter, title } = Astro.props;
 
 const isHome = Astro.url.pathname === "/";
+const isTeaching = Astro.url.pathname.startsWith("/teaching");
 const isBlog = Astro.url.pathname.startsWith("/blog");
 const isTalks = Astro.url.pathname.startsWith("/talks");
 const isPublications = Astro.url.pathname.startsWith("/publications");
@@ -29,6 +30,7 @@ const pageTitle = [
 // Order here is the source of truth for the view-transition slide direction below.
 const navItems = [
 	{ href: "/", label: "Home", active: isHome },
+	{ href: "/teaching", label: "Teaching", active: isTeaching },
 	{ href: "/talks", label: "Talks", active: isTalks },
 	{ href: "/publications", label: "Pubs", active: isPublications },
 	{ href: "/blog", label: "Blog", active: isBlog },
@@ -76,9 +78,10 @@ const navItems = [
 				const getPageIndex = (url) => {
 					const path = new URL(url, window.location.origin).pathname;
 					if (path === "/" || path === "") return 0;
-					if (path.startsWith("/talks")) return 1;
-					if (path.startsWith("/publications")) return 2;
-					if (path.startsWith("/blog")) return 3;
+					if (path.startsWith("/teaching")) return 1;
+					if (path.startsWith("/talks")) return 2;
+					if (path.startsWith("/publications")) return 3;
+					if (path.startsWith("/blog")) return 4;
 					return -1;
 				};
 
