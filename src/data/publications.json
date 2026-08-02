@@ -271,5 +271,57 @@
       "rectangle": "/images/pubs/unraveling-rectangle.png"
     },
     "featured": true
+  },
+  {
+    "title": "Java academic benchmark: Exam-based evaluation of LLMs on object-oriented programming",
+    "venue": "Journal of Systems and Software",
+    "year": 2026,
+    "doi": "10.1016/j.jss.2026.113033",
+    "authors": "Alessio Cocchieri, Luca Ragazzi, Gianluca Aguzzi, Giacomo Frisoni, Lorenzo Molfetta, Gianluca Moro, Mirko Viroli",
+    "description": "This paper introduces a Java academic benchmark for evaluating the ability of large language models to solve object-oriented programming exams.",
+    "image": {
+      "square": "/images/pubs/jss.png",
+      "rectangle": "/images/pubs/jss.png"
+    },
+    "featured": true
+  },
+  {
+    "title": "ProFed: A Benchmark for Proximity-Based Non-IID Federated Learning",
+    "venue": "Journal of Open Research Software",
+    "year": 2026,
+    "doi": "10.5334/jors.624",
+    "authors": "Davide Domini, Christian Otte Ingemann, Gianluca Aguzzi, Lukas Esterle, Mirko Viroli",
+    "description": "This paper introduces ProFed, a benchmark for evaluating federated learning methods in proximity-based settings with non-identically distributed data.",
+    "image": {
+      "square": "/images/pubs/jors.png",
+      "rectangle": "/images/pubs/jors.png"
+    },
+    "featured": false
+  },
+  {
+    "title": "Privacy Leakage in Small Agentic Healthcare Models: An Empirical Analysis",
+    "venue": "2026 IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops)",
+    "year": 2026,
+    "doi": "10.1109/PerComWorkshops68308.2026.11585450",
+    "authors": "Gianluca Aguzzi, Sara Montagna, Stefano Ferretti",
+    "description": "This paper empirically analyzes privacy leakage risks in small agentic healthcare models, with a focus on protecting sensitive information in healthcare applications.",
+    "image": {
+      "square": "/images/pubs/privacy-leakage.png",
+      "rectangle": "/images/pubs/privacy-leakage.png"
+    },
+    "featured": false
+  },
+  {
+    "title": "Heterogeneous GNN for collective-task offloading in cloud-edge via deep Q-learning",
+    "venue": "Future Generation Computer Systems",
+    "year": 2026,
+    "doi": "10.1016/j.future.2026.108539",
+    "authors": "Nicolas Farabegoli, Davide Domini, Gianluca Aguzzi, Mirko Viroli",
+    "description": "This paper presents a heterogeneous graph neural network approach for collective-task offloading in cloud-edge systems, combined with deep Q-learning to support adaptive resource allocation.",
+    "image": {
+      "square": "/images/pubs/fgcs.png",
+      "rectangle": "/images/pubs/fgcs.png"
+    },
+    "featured": false
   }
 ]
