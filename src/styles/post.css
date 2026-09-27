@@ -8,6 +8,7 @@
  *   <div class="stats"> …                 figure strip (see .stat below)
  *   <aside class="callout" data-label="">  framed aside with a small label
  *   <aside class="callout callout--ledger" data-label="">  ✗-marked entries
+ *   <figure> <img>|<video> <figcaption>  media with a small caption
  *   <hr>                                  ✦ ✦ ✦ section ornament
  *
  * Colours come from the site tokens in Layout.astro (--accent, --accent-light,
@@ -71,6 +72,34 @@ html.dark .post-body > p:first-of-type {
 	padding-left: 1.1rem;
 	border-left: 3px solid rgba(var(--accent), 0.4);
 	opacity: 0.85;
+}
+
+/* Media figures. Capped in height so portrait phone shots don't take over the
+ * page; width:auto keeps the aspect ratio under both max constraints. */
+.post-body figure:not(.pull-quote) {
+	margin: 2rem 0;
+}
+
+.post-body figure:not(.pull-quote) :is(img, video) {
+	display: block;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 75vh;
+	margin: 0 auto;
+	border-radius: 0.5rem;
+}
+
+.post-body figcaption {
+	margin-top: 0.6rem;
+	text-align: center;
+	font-size: 0.72em;
+	line-height: 1.4;
+	color: rgb(107 114 128);
+}
+
+html.dark .post-body figcaption {
+	color: rgb(156 163 175);
 }
 
 /* ---------------------------------------------------------------- <mark> */
