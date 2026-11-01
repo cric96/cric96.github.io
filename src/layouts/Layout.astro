@@ -2,6 +2,10 @@
 // https://github.com/fontsource/font-files/tree/3ef0dc8e3b625831a3ce7d586194c718491b7c6f/fonts/google/jetbrains-mono
 import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/600.css";
+import "@fontsource/jetbrains-mono/600-italic.css";
+import "@fontsource/jetbrains-mono/700.css";
+import "@fontsource/jetbrains-mono/400-italic.css";
 import "../styles/global.css";
 import { ClientRouter, slide } from "astro:transitions";
 import Link from "../components/Link.astro";
@@ -175,7 +179,7 @@ const navItems = [
 			</main>
 
 			<div class="mt-4" transition:name="back-link">
-				{!isHome && <Link href="/" icon="mdi:arrow-left" />}
+				{!isHome && <Link href="/" icon="mdi:arrow-left" label="Back to home" />}
 			</div>
 
 			<footer class="absolute bottom-8 left-0 w-full flex flex-col items-center justify-center pointer-events-none px-10 text-center" transition:name="footer">
@@ -183,7 +187,7 @@ const navItems = [
 					✦ ✦ ✦ ✦ ✦
 				</div>
 				<p class="text-sm text-gray-500 dark:text-gray-400 pointer-events-auto">
-					For further information, please reach out to me via email: <span class="font-bold" style="color: rgb(var(--accent))">gianluca.aguzzi at unibo.it</span>
+					For further information, please reach out to me via email: <a href="mailto:gianluca.aguzzi@unibo.it" class="font-bold" style="color: rgb(var(--accent))">gianluca.aguzzi@unibo.it</a>
 				</p>
 			</footer>
 		</div>
@@ -208,7 +212,8 @@ const navItems = [
 	:root {
 		--accent: 224, 108, 159;
 		--accent-light: 99, 105, 209;
-		--accent-dark: 236, 167, 44;
+		/* Darker in light mode so h2 clears 3:1 contrast on #fafafa; dark mode restores the bright one. */
+		--accent-dark: 217, 119, 6;
 		--accent-gradient: linear-gradient(
 			45deg,
 			rgb(var(--accent)),
@@ -287,6 +292,7 @@ const navItems = [
 	}
 
 	html.dark {
+		--accent-dark: 236, 167, 44;
 		background: #13151a;
 		background-image: radial-gradient(
 			rgba(255, 255, 255, 0.05) 1px,
@@ -301,16 +307,19 @@ const navItems = [
 		animation: fadeIn 0.8s ease-out forwards;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		html,
+		html.light,
+		html.dark,
+		body {
+			animation: none;
+		}
+	}
+
 	/* We want to bump up the font size on touch screens so that tap targets are easier to hit */
 	@media (hover: none) {
 		html {
 			font-size: 18px;
-		}
-
-		/* Pad links that are the only child of a paragraph */
-		p > a:only-child {
-			padding: 0.5rem 0;
-			display: inline-block;
 		}
 	}
 
@@ -345,7 +354,8 @@ const navItems = [
 
 	h2 {
 		color: rgb(var(--accent-dark));
-		margin-top: 1.8rem;
+		/* !important: main's space-y-4 (specificity 0,3,0) would otherwise reset this to 1rem. */
+		margin-top: 3rem !important;
 		font-size: 1.3rem;
 		font-weight: 600;
 		margin-bottom: 0.8rem;

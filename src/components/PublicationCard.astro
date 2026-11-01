@@ -14,6 +14,8 @@ interface Props {
 
 const { title, venue, year, image, description, authors, doi, featured } = Astro.props;
 
+const ME = 'Gianluca Aguzzi';
+
 // Generate a deterministic gradient based on the title length and characters
 const hash = title.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
 const colors = [
@@ -27,25 +29,15 @@ const angle = Math.abs(hash) % 360;
 const gradientStyle = `background: linear-gradient(${angle}deg, ${color1}, ${color2});`;
 ---
 
-<div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors flex flex-col sm:flex-row gap-4">
+<div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors flex flex-col sm:flex-row gap-4 sm:gap-5">
   {image?.square || image?.rectangle ? (
-    <>
-      <img src={image.rectangle || image.square} alt={title} class="block sm:hidden w-full h-40 rounded object-cover shadow-sm flex-shrink-0" />
-      <img src={image.square || image.rectangle} alt={title} class="hidden sm:block w-24 h-24 rounded object-cover shadow-sm flex-shrink-0" />
-    </>
+    <picture class="flex-shrink-0">
+      {/* One download: wide crop on phones, square thumbnail from sm up. */}
+      <source media="(min-width: 640px)" srcset={image.square || image.rectangle} />
+      <img src={image.rectangle || image.square} alt="" loading="lazy" class="w-full h-40 sm:w-32 sm:h-32 rounded object-cover shadow-sm" />
+    </picture>
   ) : (
-    <>
-      <div 
-        class="block sm:hidden w-full h-40 rounded shadow-sm flex-shrink-0"
-        style={gradientStyle}
-      >
-      </div>
-      <div 
-        class="hidden sm:block w-24 h-24 rounded shadow-sm flex-shrink-0"
-        style={gradientStyle}
-      >
-      </div>
-    </>
+    <div class="w-full h-40 sm:w-32 sm:h-32 rounded shadow-sm flex-shrink-0" style={gradientStyle}></div>
   )}
   <div class="flex-1 min-w-0">
     <div class="flex items-start justify-between gap-2">
@@ -56,16 +48,15 @@ const gradientStyle = `background: linear-gradient(${angle}deg, ${color1}, ${col
         </span>
       )}
     </div>
-    <div class="text-xs text-gray-400 mt-1 mb-2">{venue} • {year}</div>
-    <div class="text-sm text-gray-500 mb-2 italic">{authors}</div>
+    <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 mb-2">{venue} • {year}</div>
+    <div class="text-sm text-gray-500 dark:text-gray-400 mb-2 italic">
+      {authors.split(ME).map((part, i) => (
+        <>{i > 0 && <span class="font-medium text-gray-800 dark:text-gray-200">{ME}</span>}{part}</>
+      ))}
+    </div>
     {doi && (
       <div class="mb-2">
-        <a 
-          href={`https://doi.org/${doi}`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="text-xs font-mono text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-        >
+        <a href={`https://doi.org/${doi}`} target="_blank" rel="noopener noreferrer" class="text-xs">
           DOI: {doi}
         </a>
       </div>

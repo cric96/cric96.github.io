@@ -4,19 +4,70 @@ layout: ../layouts/Layout.astro
 title: 
 ---
 
+import { getCollection } from 'astro:content'
 import Link from '../components/Link.astro'
+import PostRow from '../components/PostRow.astro'
+import publications from '../data/publications.json'
+import { readingTime, shortDate, isoDate } from '../utils/post'
+
+export const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2)
+
+export const latestPubs = [...publications] // appended in order: reverse so the newest entry of a year wins
+  .reverse().sort((a, b) => b.year - a.year).slice(0, 3)
+
+export const themes = [
+  {
+    title: "Macroprogramming of Collective Adaptive Systems",
+    text: "Creating field-based and aggregate-programming abstractions that make complex collective behaviours compositional, predictable, and easier to deploy.",
+    paper: { label: "ScaFi (SoftwareX 2022)", doi: "10.1016/j.softx.2022.101248" },
+  },
+  {
+    title: "Swarm Robotics",
+    text: "Designing decentralised coordination mechanisms that let groups of autonomous robots self-organise, adapt, and achieve collective goals.",
+    paper: { label: "MacroSwarm (LMCS 2025)", doi: "10.46298/lmcs-21(3:13)2025" },
+  },
+  {
+    title: "Multi-Agent and Federated Learning",
+    text: "Studying how autonomous agents and decentralised participants can learn to cooperate, coordinate decisions, and improve collectively without centralising data or control.",
+    paper: { label: "FBFL (LMCS 2026)", doi: "10.46298/lmcs-22(1:19)2026" },
+  },
+  {
+    title: "AI Engineering and AI-Assisted Engineering",
+    text: "Engineering reliable AI systems while applying foundational models across the software lifecycle, from requirements and program synthesis to development practice.",
+    paper: { label: "Java Academic Benchmark (JSS 2026)", doi: "10.1016/j.jss.2026.113033" },
+  },
+  {
+    title: "LLMs in Healthcare",
+    text: "Exploring reliable, human-centred uses of large language models that can support healthcare workflows while preserving meaningful oversight.",
+    paper: { label: "RAG-Enhanced Open SLMs (J. Med. Syst. 2025)", doi: "10.1007/s10916-025-02297-7" },
+  },
+]
+
+export const projects = [
+  { name: "MacroSwarm", logo: "/images/projects/macroswarm.png", href: "https://github.com/scafi/macro-swarm", text: <>A field-based compositional framework for swarm programming. Check the <a href="https://scafi.github.io/macro-swarm/">Documentation</a>.</> },
+  { name: "ScaFi", logo: "/images/projects/scafi.png", href: "https://github.com/scafi/scafi", text: <>Core contributor. Scala framework for aggregate programming, including tools like <a href="https://ieeexplore.ieee.org/document/10771268">ScaFi Web</a> and <a href="https://github.com/cric96/ScaFi-Blocks">ScaFi Blocks</a>.</> },
+  { name: "Phyelds", logo: "/images/projects/phyelds.png", href: "https://github.com/phyelds/phyelds", text: "A Python framework designed to bring aggregate programming concepts and field-based coordination to Python." },
+  { name: "SHAC++", monogram: "S++", href: "https://f14-bertolotti.github.io/shacpp/", text: "A novel algorithm for managing multi-agent systems using differentiable reinforcement learning." },
+  { name: "Project Emerge", logo: "/images/projects/emerge.png", href: "https://github.com/Project-Emerge", text: "A hands-on project showcased at the European Researchers' Night featuring the creation of real, autonomous drones." },
+]
 
 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-12 mt-4 text-center sm:text-left">
   <img src="/me.png" alt="Gianluca Aguzzi" class="w-32 h-32 rounded-full object-cover shadow-lg flex-shrink-0" />
   <div class="flex flex-col items-center sm:items-start">
     # Gianluca Aguzzi
-    Postdoctoral Researcher and Adjunct Professor. 
+    Postdoctoral Researcher and Adjunct Professor at the University of Bologna. I work on collective adaptive systems: swarms, multi-agent learning, and aggregate programming.
     
-    <div class="social-links-container !mt-4">
-      <Link icon="mdi:instagram" href="https://www.instagram.com/gpaggi96/"/> 
-      <Link icon="mdi:github" href="https://github.com/cric96"/> 
-      <Link icon="mdi:linkedin" href="https://www.linkedin.com/in/gaguzzi/"/> 
+    <div class="social-links-container !mt-2">
+      <Link icon="mdi:school-outline" label="Google Scholar" href="https://scholar.google.com/citations?user=YY_KZzoAAAAJ&hl=it"/> 
+      <Link icon="mdi:github" label="GitHub" href="https://github.com/cric96"/> 
+      <Link icon="mdi:linkedin" label="LinkedIn" href="https://www.linkedin.com/in/gaguzzi/"/> 
+      <Link icon="mdi:email-outline" label="Email" href="mailto:gianluca.aguzzi@unibo.it"/> 
+      <Link icon="mdi:file-account-outline" label="Curriculum Vitae (PDF)" href="https://github.com/cric96/curriculum-vitae/releases/latest/download/cv-eng.pdf"/> 
+      <Link icon="mdi:instagram" label="Instagram" href="https://www.instagram.com/gpaggi96/"/> 
     </div>
+    <p class="text-sm mt-4 mb-0">[ORCID](https://orcid.org/0000-0002-1553-4561) · [Scopus](https://www.scopus.com/authid/detail.uri?authorId=57224574088) · [DBLP](https://dblp.uni-trier.de/pid/294/4314.html) · [ResearchGate](https://www.researchgate.net/profile/Gianluca-Aguzzi)</p>
   </div>
 </div>
 
@@ -37,83 +88,81 @@ Besides my professional interests,
  and, when my attention span allows,
  I enjoy reading books outside my field of expertise, especially those related to psychology and physics.
 
-## — Me on the web
-
-To keep up with my latest research, you can connect with me here:
-- **ResearcherIDs**: [ORCID](https://orcid.org/0000-0002-1553-4561) - [Google Scholar](https://scholar.google.com/citations?user=YY_KZzoAAAAJ&hl=it) 
-- **Indexing DBS**: [Scopus](https://www.scopus.com/authid/detail.uri?authorId=57224574088) - [DBLP](https://dblp.uni-trier.de/pid/294/4314.html)
-- **Social Networks**: [ResearchGate](https://www.researchgate.net/profile/Gianluca-Aguzzi)
-- **Curriculum Vitae**: [Full](https://github.com/cric96/curriculum-vitae/releases/latest/download/cv-eng.pdf)
-
 ## — Research Themes
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 mb-8 text-sm">
-  <div class="p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50/70 dark:bg-white/[0.03] hover:bg-gray-100/80 dark:hover:bg-white/[0.06] transition-colors">
-    <span class="text-xs font-medium" style="color: rgb(var(--accent))">01</span>
-    <h3 class="mt-2 mb-2 text-base font-medium text-gray-900 dark:text-gray-100">Multi-Agent and Federated Learning</h3>
-    <p class="m-0">Studying how autonomous agents and decentralised participants can learn to cooperate, coordinate decisions, and improve collectively without centralising data or control.</p>
-  </div>
-  <div class="p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50/70 dark:bg-white/[0.03] hover:bg-gray-100/80 dark:hover:bg-white/[0.06] transition-colors">
-    <span class="text-xs font-medium" style="color: rgb(var(--accent))">02</span>
-    <h3 class="mt-2 mb-2 text-base font-medium text-gray-900 dark:text-gray-100">AI Engineering and AI-Assisted Engineering</h3>
-    <p class="m-0">Engineering reliable AI systems while applying foundational models across the software lifecycle, from requirements and program synthesis to development practice.</p>
-  </div>
-  <div class="p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50/70 dark:bg-white/[0.03] hover:bg-gray-100/80 dark:hover:bg-white/[0.06] transition-colors">
-    <span class="text-xs font-medium" style="color: rgb(var(--accent))">03</span>
-    <h3 class="mt-2 mb-2 text-base font-medium text-gray-900 dark:text-gray-100">Swarm Robotics</h3>
-    <p class="m-0">Designing decentralised coordination mechanisms that let groups of autonomous robots self-organise, adapt, and achieve collective goals.</p>
-  </div>
-  <div class="p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50/70 dark:bg-white/[0.03] hover:bg-gray-100/80 dark:hover:bg-white/[0.06] transition-colors">
-    <span class="text-xs font-medium" style="color: rgb(var(--accent))">04</span>
-    <h3 class="mt-2 mb-2 text-base font-medium text-gray-900 dark:text-gray-100">LLMs in Healthcare</h3>
-    <p class="m-0">Exploring reliable, human-centred uses of large language models that can support healthcare workflows while preserving meaningful oversight.</p>
-  </div>
-  <div class="p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50/70 dark:bg-white/[0.03] hover:bg-gray-100/80 dark:hover:bg-white/[0.06] transition-colors">
-    <span class="text-xs font-medium" style="color: rgb(var(--accent))">05</span>
-    <h3 class="mt-2 mb-2 text-base font-medium text-gray-900 dark:text-gray-100">Macroprogramming of Collective Adaptive Systems</h3>
-    <p class="m-0">Creating field-based and aggregate-programming abstractions that make complex collective behaviours compositional, predictable, and easier to deploy.</p>
-  </div>
+  {themes.map((theme, i) => (
+    <div class={`${i === 0 ? "sm:col-span-2 " : ""}flex flex-col p-5 border border-gray-200 dark:border-gray-800 rounded-lg bg-gray-50/70 dark:bg-white/[0.03] hover:bg-gray-100/80 dark:hover:bg-white/[0.06] transition-colors`}>
+      <span class="text-xs font-medium" style="color: rgb(var(--accent))">{String(i + 1).padStart(2, "0")}</span>
+      <h3 class="mt-2 mb-2 text-base font-medium text-gray-900 dark:text-gray-100">{theme.title}</h3>
+      <p class="mb-3">{theme.text}</p>
+      <p class="mt-auto mb-0 text-xs">Key paper: <a href={`https://doi.org/${theme.paper.doi}`}>{theme.paper.label}</a></p>
+    </div>
+  ))}
 </div>
 
 ## — Projects
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4 mb-8 text-sm">
-  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-    <strong class="text-base text-gray-900 dark:text-gray-100">[MacroSwarm](https://github.com/scafi/macro-swarm)</strong>
-    <p class="mt-1">A field-based compositional framework for swarm programming. Check the [Documentation](https://scafi.github.io/macro-swarm/).</p>
-  </div>
-  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-    <strong class="text-base text-gray-900 dark:text-gray-100">[ScaFi](https://github.com/scafi/scafi)</strong>
-    <p class="mt-1">Core contributor. Scala framework for aggregate programming, including tools like [ScaFi Web](https://ieeexplore.ieee.org/document/10771268) and [ScaFi Blocks](https://github.com/cric96/ScaFi-Blocks).</p>
-  </div>
-  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-    <strong class="text-base text-gray-900 dark:text-gray-100">[Phyelds](https://github.com/phyelds/phyelds)</strong>
-    <p class="mt-1">A Python framework designed to bring aggregate programming concepts and field-based coordination to Python.</p>
-  </div>
-  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-    <strong class="text-base text-gray-900 dark:text-gray-100">[SHAC++](https://f14-bertolotti.github.io/shacpp/)</strong>
-    <p class="mt-1">A novel algorithm for managing multi-agent systems using differentiable reinforcement learning.</p>
-  </div>
-  <div class="p-4 border border-gray-200 dark:border-gray-800 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-    <strong class="text-base text-gray-900 dark:text-gray-100">[Project Emerge](https://github.com/Project-Emerge)</strong>
-    <p class="mt-1">A hands-on project showcased at the European Researchers' Night featuring the creation of real, autonomous drones.</p>
-  </div>
+<div class="mt-4 mb-8 border-t border-gray-200 dark:border-gray-800 text-sm">
+  {projects.map((project) => (
+    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
+      <div class="flex items-center gap-3 shrink-0 sm:w-52">
+        <span class="w-10 h-10 shrink-0 flex items-center justify-center overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white">
+          {project.logo
+            ? <img src={project.logo} alt="" width="40" height="40" loading="lazy" class="w-full h-full object-contain" />
+            : <span class="text-xs font-semibold" style="font-family: 'JetBrains Mono', monospace; color: rgb(var(--accent))">{project.monogram}</span>}
+        </span>
+        <a href={project.href} class="text-base font-medium">{project.name}</a>
+      </div>
+      <p class="m-0">{project.text}</p>
+    </div>
+  ))}
 </div>
+
+## — Latest
+
+### From the blog
+
+<div class="mt-2 mb-4 border-t border-gray-200 dark:border-gray-800">
+  {latestPosts.map((post) => (
+    <PostRow
+      href={`/blog/${post.id}/`}
+      title={post.data.title}
+      description={post.data.description}
+      date={shortDate(post.data.date)}
+      datetime={isoDate(post.data.date)}
+      minutes={readingTime(post.body)}
+      tags={post.data.tags}
+    />
+  ))}
+</div>
+
+### Recent papers
+
+<div class="mt-2 mb-4 border-t border-gray-200 dark:border-gray-800 text-sm">
+  {latestPubs.map((pub) => (
+    <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
+      <span class="shrink-0 sm:w-28 text-xs text-gray-500 dark:text-gray-400 tabular-nums">{pub.year}</span>
+      <div class="min-w-0">
+        <a href={`https://doi.org/${pub.doi}`} class="font-medium">{pub.title}</a>
+        <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">{pub.venue}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+[All posts](/blog) · [All publications](/publications)
 
 ## — Teaching
 
-Currently, I'm serving as an adjunct professor here at the University of Bologna. I am involved in the following courses:
-- **Advanced Software Modelling and Design (Module 2)** – Master's Degree in Computer Science and Engineering.
-- **Paradigmi di Programmazione e Sviluppo (Module 2)** – Master's Degree in Computer Science and Engineering.
-- **Progettazione e Sviluppo del Software (Module 2)** – Bachelor's Degree in Computer Systems Technologies.
-
-For the latest updates on my courses, please refer to the [official website](https://www.unibo.it/sitoweb/gianluca.aguzzi).
+I'm an adjunct professor at the University of Bologna, where I teach software engineering courses.
+The current courses are listed on the [Teaching](/teaching) page; official announcements are on my [university page](https://www.unibo.it/sitoweb/gianluca.aguzzi).
 
 ## — Random things I'm proud of
 
-Here are a few special achievements and events I've been involved in recently:
-- 🎤 **[Invited speaker at Scala Italy](http://2023.scala-italy.it/speakers/gianluca-aguzzi.html)**: Had the great opportunity to speak and share my passion for Scala.
-- 🤖 **[Minerva LLM Seminar](https://www.nuovaciviltadellemacchine.it/intelligenza-artificiale-secondo-ciclo-secondo-incontro-3/)**: Hosted an engaging, accessible seminar breaking down Large Language Models.
-- 💻 **[CRIAD Coding Activities](https://www.innova-mente.org/code-to-learn-il-computer-come-creta/)**: Shared the concepts of computational thinking with schools and children through engaging tech initiatives.
-- 🌌 **[European Researchers' Night](https://www.nottedeiricercatori-society.eu/eventi/lunione-fa-la-forza-sciami-di-droni)**: Brought our research to the public and shared the magic of science.
-- 🐜 **[Course at UniJunior](https://www.unijunior.it/calendario/campus-di-cesena-romagna/lintelligenza-collettiva-dalla-natura-ai-robot-cesena)**: Explored the principles of collective intelligence, from natural systems to robots.
+A few special achievements and events I've been involved in:
+- **[Course at UniJunior](https://www.unijunior.it/calendario/campus-di-cesena-romagna/lintelligenza-collettiva-dalla-natura-ai-robot-cesena)** (2026): Explored the principles of collective intelligence, from natural systems to robots.
+- **[European Researchers' Night](https://www.nottedeiricercatori-society.eu/eventi/lunione-fa-la-forza-sciami-di-droni)** (2024–2026): Brought our research to the public and shared the magic of science. [The story](/blog/three-researchers-nights-with-a-swarm/).
+- **[Minerva LLM Seminar](https://www.nuovaciviltadellemacchine.it/intelligenza-artificiale-secondo-ciclo-secondo-incontro-3/)** (2025): Hosted an engaging, accessible seminar breaking down Large Language Models.
+- **[Invited speaker at Scala Italy](http://2023.scala-italy.it/speakers/gianluca-aguzzi.html)** (2023): Had the great opportunity to speak and share my passion for Scala.
+- **[CRIAD Coding Activities](https://www.innova-mente.org/code-to-learn-il-computer-come-creta/)**: Shared the concepts of computational thinking with schools and children through engaging tech initiatives.
