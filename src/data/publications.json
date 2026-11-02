@@ -350,16 +350,6 @@
     "featured": false
   },
   {
-    "title": "Self-organisation with Aggregate Computing: A Reflection Under the Lenses of Multi-agent Systems Engineering",
-    "venue": "The Agents Journey (LNCS)",
-    "year": 2026,
-    "date": "2026-04-28",
-    "doi": "10.1007/978-3-032-22940-3_6",
-    "authors": "Gianluca Aguzzi, Roberto Casadei, Danilo Pianini, Mirko Viroli",
-    "description": "This paper revisits a decade of aggregate computing research from a multi-agent systems engineering perspective, from its roots in co-fields, amorphous computing, and environment design to the field calculus and the languages, libraries, and platforms built on it.",
-    "featured": false
-  },
-  {
     "title": "Phyelds: A Pythonic Framework for Aggregate Computing",
     "venue": "International Conference on Coordination Models and Languages",
     "year": 2026,
@@ -367,6 +357,10 @@
     "doi": "10.1007/978-3-032-28358-0_9",
     "authors": "Gianluca Aguzzi, Davide Domini, Nicolas Farabegoli, Mirko Viroli",
     "description": "This paper presents Phyelds, a lightweight Python implementation of the field calculus with a Pythonic API, designed to bring aggregate programming to data science and machine learning practitioners and to integrate with the Python ecosystem.",
+    "image": {
+      "square": "/images/pubs/phyelds.png",
+      "rectangle": "/images/pubs/phyelds.png"
+    },
     "featured": true
   },
   {
@@ -377,6 +371,10 @@
     "doi": "10.1007/978-3-032-28358-0_6",
     "authors": "Nicolas Farabegoli, Luca Tassinari, Gianluca Aguzzi, Mirko Viroli",
     "description": "This paper presents ScalaTropy, a Scala approach to multiparty coordination built on monadic communication primitives, demonstrated on distributed applications such as master-worker computations and replicated key-value stores.",
+    "image": {
+      "square": "/images/pubs/scalatropy.png",
+      "rectangle": "/images/pubs/scalatropy.png"
+    },
     "featured": false
   },
   {
@@ -387,16 +385,10 @@
     "doi": "10.1007/978-3-032-36868-3_28",
     "authors": "Gianluca Aguzzi, Giorgio Audrito, Roberto Girau, Gianluca Torta, Roberto Casadei",
     "description": "This paper introduces collective finite state machines, where states are collective tasks and transitions are agreements on how the strategy evolves, with a formal characterisation on event structures and a DSL layer on top of ScaFi that guarantees collective agreement with bounded memory.",
-    "featured": false
-  },
-  {
-    "title": "A Specification Approach for Distributed Algorithms in Continuous Space-Time",
-    "venue": "International Symposium on Leveraging Applications of Formal Methods (ISoLA)",
-    "year": 2026,
-    "date": "2026-10-16",
-    "doi": "10.1007/978-3-032-40108-3_13",
-    "authors": "Roberto Casadei, Mirko Viroli, Niccolò Castronuovo, Gianluca Aguzzi",
-    "description": "This paper proposes specifying collective distributed algorithms as computational fields over continuous space-time, so that their deployment on a discrete network of devices can be seen as an approximation of an ideal continuous behaviour.",
+    "image": {
+      "square": "/images/pubs/collective-fsm.png",
+      "rectangle": "/images/pubs/collective-fsm.png"
+    },
     "featured": false
   },
   {
@@ -407,6 +399,10 @@
     "doi": "10.1016/j.scico.2026.103559",
     "authors": "Nicolas Farabegoli, Gianluca Aguzzi, Martina Baiardi, Angela Cortecchia, Davide Domini, Danilo Pianini, Mirko Viroli",
     "description": "This paper presents Project Emerge, a toolchain for live multi-robot demonstrations based on aggregate computing, where camera-based localisation lets mobile robots self-organise into spatial patterns, validated at the European Researchers' Night.",
+    "image": {
+      "square": "/images/pubs/emerge.png",
+      "rectangle": "/images/pubs/emerge.png"
+    },
     "featured": false
   },
   {
@@ -417,26 +413,10 @@
     "doi": "10.1016/j.pmcj.2026.102300",
     "authors": "Davide Domini, Gianluca Aguzzi, Amirhossein Douzandeh Zenoozi, Laura Erhan, Lucia Cavallaro, Antonio Liotta, Mirko Viroli",
     "description": "This paper proposes SParSeFuL, a decentralized clustered federated learning framework in which spatially close devices with similar data self-organize into federations at runtime, with model sparsification embedded in the self-organization process to cut communication costs.",
-    "featured": false
-  },
-  {
-    "title": "C2FL: Clustered Continual Federated Learning under Spatial and Temporal Drift",
-    "venue": "2026 IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS)",
-    "year": 2026,
-    "date": "2026-09-10",
-    "doi": "10.48550/arXiv.2606.18003",
-    "authors": "Davide Domini, Gianluca Aguzzi, Lorenzo Pellegrini, Mirko Viroli, Lukas Esterle",
-    "description": "This paper proposes C2FL, a fully distributed federated learning approach in which mobile nodes self-organize into spatial learning groups and counter temporal drift by combining experience replay with dwell-time-aware adaptive averaging.",
-    "featured": false
-  },
-  {
-    "title": "Discovering Collaboration from Novelty: Random Network Distillation for Clustered Federated Learning",
-    "venue": "4th International Workshop on Artificial Intelligence for Autonomous computing Systems (AI4AS @ ACSOS 2026)",
-    "year": 2026,
-    "date": "2026-09-07",
-    "doi": "10.48550/arXiv.2606.30499",
-    "authors": "Davide Domini, Gianluca Aguzzi, Ivana Dusparic, Danilo Pianini, Mirko Viroli",
-    "description": "This paper proposes a lightweight clustered federated learning approach where each client uses the prediction error of a small Random Network Distillation model as a novelty signal, so that groups of similar clients are discovered before training, without sharing raw data.",
-    "featured": false
+    "image": {
+      "square": "/images/pubs/sparseful.png",
+      "rectangle": "/images/pubs/sparseful.png"
+    },
+    "featured": true
   }
 ]
