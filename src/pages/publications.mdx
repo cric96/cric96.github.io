@@ -6,6 +6,8 @@ title: "Publications"
 import PublicationCard from '../components/PublicationCard.astro';
 import publications from '../data/publications.json';
 
+export const newestFirst = (a, b) => b.year - a.year || (b.date ?? '').localeCompare(a.date ?? '');
+
 # Publications
 
 A selection of my scientific publications. All my publications are available in my [Curriculum Vitae](https://github.com/cric96/curriculum-vitae/releases/latest/download/cv-eng.pdf). For the full reference of each entry, please refer to the provided DOI link.
@@ -14,7 +16,7 @@ A selection of my scientific publications. All my publications are available in 
   <>
     <h2 id={year.toString()}>{year}</h2>
     <div class="grid grid-cols-1 gap-4 mt-4 mb-8 text-sm">
-      {publications.filter(p => p.year === year).map((pub) => (
+      {publications.filter(p => p.year === year).sort(newestFirst).map((pub) => (
         <PublicationCard 
           title={pub.title}
           venue={pub.venue}
